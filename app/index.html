@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Nights — GTA-style Cover Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <h1>Vice Nights</h1>
+    <p>Turn your photos into GTA-style cover art. Your photos never leave this machine.</p>
+  </header>
+
+  <section class="stage">
+    <canvas id="cover" width="960" height="540" aria-label="Cover preview"></canvas>
+    <p class="hint">Click a panel to select it, then change its photo, zoom and position below.</p>
+  </section>
+
+  <aside class="controls">
+    <section class="group">
+      <h2>Photos</h2>
+      <label>Photo 1 <input id="photo0" type="file" accept="image/*"></label>
+      <label>Photo 2 <input id="photo1" type="file" accept="image/*"></label>
+      <label>Photo 3 <input id="photo2" type="file" accept="image/*"></label>
+      <div class="row">
+        <button id="sample-pier" type="button">Sample: Pier</button>
+        <button id="sample-boulevard" type="button">Sample: Boulevard</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Layout</h2>
+      <div class="row" id="layouts">
+        <button data-layout="strip" type="button" class="active">Sunset Strip</button>
+        <button data-layout="grid" type="button">Four Corners</button>
+        <button data-layout="trio" type="button">Vice Trio</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Colour grade</h2>
+      <div class="row" id="grades">
+        <button data-grade="sunset" type="button" class="active">Vice Sunset</button>
+        <button data-grade="neon" type="button">Neon Nights</button>
+        <button data-grade="noir" type="button">Palm Noir</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Cover size</h2>
+      <div class="row" id="sizes">
+        <button data-size="1080x1080" type="button">Square</button>
+        <button data-size="1080x1350" type="button">Portrait</button>
+        <button data-size="1920x1080" type="button" class="active">Wide</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Caption</h2>
+      <label>Title <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
+      <label>Tag line <input id="subcaption" type="text" maxlength="40" value="VICE CITY"></label>
+    </section>
+
+    <section class="group">
+      <h2>Selected panel</h2>
+      <label>Photo in this panel
+        <select id="panel-photo">
+          <option value="0">Photo 1</option>
+          <option value="1">Photo 2</option>
+          <option value="2">Photo 3</option>
+        </select>
+      </label>
+      <label>Zoom <input id="panel-zoom" type="range" min="1" max="2.5" step="0.05" value="1"></label>
+      <label>Pan left–right <input id="panel-dx" type="range" min="-50" max="50" step="1" value="0"></label>
+      <label>Pan up–down <input id="panel-dy" type="range" min="-50" max="50" step="1" value="0"></label>
+    </section>
+
+    <section class="group">
+      <h2>Export PNG</h2>
+      <div class="row" id="exports">
+        <button data-export="1080x1080" type="button">1080 × 1080</button>
+        <button data-export="1080x1350" type="button">1080 × 1350</button>
+        <button data-export="1920x1080" type="button">1920 × 1080</button>
+      </div>
+      <p id="status" role="status"></p>
+    </section>
+  </aside>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
